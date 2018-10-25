@@ -1,9 +1,11 @@
-/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+/* Use these inject tags to dynamically create imports for 
+themelet styles. You can place them where ever you like in this file. */
 
 /* inject:imports */
 /* endinject */
 
-/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+/* This file allows you to override default styles in one central 
+location for easier upgrade and maintenance. */
 
 body {
     background: #f1f1f1;
@@ -11,8 +13,29 @@ body {
 
 #banner {
     background: #FFF;
+    box-shadow: 2px -7px 6px 0 rgba(14,20,26,.12), 5px 4px 10px 0 rgba(14,20,26,.1);
+    margin: 15px 0;
+}
+
+.gndi-flex-inline {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-avatar-link .text-default {
+    display: flex;
 }
 
 #wrapper {
     padding: 0;
+}
+
+#navigation ul {
+    list-style: none;
+}
+
+.gndi-logo {
+    padding: 15px;
 }

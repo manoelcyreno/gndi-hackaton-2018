@@ -21,25 +21,28 @@
 <@liferay.control_menu />
 
 <div class="container-fluid" id="wrapper">
+
 	<header id="banner" role="banner">
-		<div id="heading">
-			<h1 class="site-title">
-				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-					<img alt="${logo_description}" width="253px" src="${images_folder}/logo-gndi.png" width="${site_logo_width}" />
-				</a>
-			</h1>
+		<div class="container gndi-flex-inline">
+			<div id="heading" class="gndi-flex-inline">
+				<h1 class="site-title">
+					<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+						<img class="gndi-logo" alt="${logo_description}" width="253px" src="${images_folder}/logo-gndi.png" width="${site_logo_width}" />
+					</a>
+				</h1>
+
+				<#if has_navigation && is_setup_complete>
+					<#include "${full_templates_path}/navigation.ftl" />
+				</#if>
+			</div>
+
+			<#include "${full_templates_path}/user_menu.ftl" />
 		</div>
-
-		<#if !is_signed_in>
-			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
-		</#if>
-
-		<#if has_navigation && is_setup_complete>
-			<#include "${full_templates_path}/navigation.ftl" />
-		</#if>
+		
 	</header>
 
-	<section id="content">
+	<section id="content" class="container">
+
 		<h1 class="hide-accessible">${the_title}</h1>
 
 		<#if selectable>
