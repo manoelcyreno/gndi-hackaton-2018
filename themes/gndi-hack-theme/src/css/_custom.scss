@@ -34,8 +34,26 @@ body {
 
 #navigation ul {
     list-style: none;
+    margin-bottom: 0;
+
+    li {
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    a {
+        color: black;
+    }
 }
 
 .gndi-logo {
+    padding: 15px;
+}
+
+.user-portrait {
+    width: 50px;
+}
+
+.dropdown-menu {
     padding: 15px;
 }
