@@ -62,7 +62,7 @@ function createData() {
         for(j = 1; j < dependentNum; j++) {
             let dependentId = Uuid()
 
-            allPromises.push(createUser(dependentId, true))
+            allPromises.push(createUserData(dependentId, true))
 
             let appointmentNum = getRandomInt(0, 15)
             
