@@ -4,3 +4,15 @@
 /* endinject */
 
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+body {
+    background: #f1f1f1;
+}
+
+#banner {
+    background: #FFF;
+}
+
+#wrapper {
+    padding: 0;
+}
