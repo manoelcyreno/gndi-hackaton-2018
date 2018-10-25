@@ -1,1 +1,0 @@
-# gndi-hackaton-2018
