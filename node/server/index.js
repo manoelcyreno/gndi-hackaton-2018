@@ -7,6 +7,12 @@ app.get('/company-summary', (req, res) => {
         res.send(JSON.stringify(result));
     });
 });
+
+app.get('/appointments-cost', (req, res) => {
+    getAppointmentsCost().then(result => {
+        res.send(JSON.stringify(result));
+    });
+});
    
 app.listen(3000);
 
@@ -23,6 +29,23 @@ function getCompanySummary() {
                 "dependentCount": dependentCount,
                 "ownerCount": ownerCount,
                 "totalCount": totalCount
+            }
+        });
+}
+
+function getAppointmentsCost() {
+    return WeDeploy
+        .data('https://data-gndihackaton.wedeploy.io/')
+        .get('appointment')
+        .then(appointmentsList => {
+            let totalCost = appointmentsList
+                .map(appointment => appointment['cost'])
+                .reduce((prev, cur) => {
+                    return prev + cur;
+                });
+
+            return {
+                "totalCost": totalCost
             }
         });
 }
