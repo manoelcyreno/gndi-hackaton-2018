@@ -121,5 +121,5 @@ function generateSpeciality(gender){
 }
 
 createData().then(() => {
-    console.log("abc")
-})
+    console.log("Completed!");
+});
