@@ -17,10 +17,12 @@ function getCompanySummary() {
         .then(usersList => {
             let dependentCount = usersList.filter(user => user['isDependent']).length;
             let ownerCount = usersList.filter(user => !user['isDependent']).length;
+            let totalCount = usersList.length;
 
             return {
                 "dependentCount": dependentCount,
-                "ownerCount": ownerCount
+                "ownerCount": ownerCount,
+                "totalCount": totalCount
             }
         });
 }
