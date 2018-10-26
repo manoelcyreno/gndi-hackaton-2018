@@ -1,0 +1,4 @@
+Bundle-Name: gndi-charts
+Bundle-SymbolicName: gndi.charts
+Bundle-Version: 1.0.0
+Export-Package: gndi.charts.constants
