@@ -9,12 +9,67 @@ location for easier upgrade and maintenance. */
 
 body {
     background: #f1f1f1;
+    height: 100%;
+    width: 100%;
+
+    &.signed-out {
+        background: url(../images/PipaDesktop.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+        #content.container {
+            max-width: 400px;
+        }
+
+        .portlet-login {
+            .portlet-content {
+                background: $primary;
+                color: #fff;
+                margin-top: 20px;
+                padding: 30px;
+                border-radius: 3px;
+                box-shadow: 2px -1px 6px 0 rgba(14, 20, 26, 0.12), 5px 4px 10px 0 rgba(14, 20, 26, 0.1);
+            }
+
+            .portlet-header,
+            .portlet-icon-back {
+                display: none;
+            }
+
+            label {
+                color: #fff;
+            }
+
+            a {
+                color: #fff;
+            }
+
+            .btn-primary {
+                background: darken($primary, 12%);
+                color: #fff;
+            }
+        }
+
+        .gndi-flex-inline {
+            justify-content: center;
+        }
+
+        #footer {
+            display: none;
+        }
+    }
 }
 
 #banner {
     background: #FFF;
-    box-shadow: 2px -7px 6px 0 rgba(14,20,26,.12), 5px 4px 10px 0 rgba(14,20,26,.1);
-    margin: 15px 0;
+    box-shadow: 2px -7px 6px 0 rgba(14, 20, 26, 0.11), 5px 3px 10px 0 rgba(14, 20, 26, 0.07);
+    margin: 0 0 15px 0;
+}
+
+.search-user-wrapper .portlet-search {
+    margin-top: 5px;
 }
 
 .gndi-flex-inline {
@@ -35,15 +90,37 @@ body {
 #navigation ul {
     list-style: none;
     margin-bottom: 0;
+    display: flex;
 
     li {
         position: relative;
-        text-transform: uppercase;
+        padding-right: 5px;
+
+        &.selected {
+            a {
+                color: $primary;
+                font-weight: bold;
+            }
+        }
+
+        &:last-child {
+            padding-right: 0;
+        }
     }
 
     a {
         color: black;
+        transition: all .2s ease-in;
+        padding: 5px;
+
+        &:hover {
+            color: $primary;
+        }
     }
+}
+
+.btn-primary {
+    color: #fff !important;
 }
 
 .gndi-logo {
@@ -51,9 +128,46 @@ body {
 }
 
 .user-portrait {
-    width: 50px;
+    width: 40px;
 }
 
 .dropdown-menu {
     padding: 15px;
+}
+
+.site-title {
+    margin-bottom: 0;
+}
+
+#footer {
+    color: rgba(#fff, 0.8);
+    background: #555;
+    
+    a {
+        color: #fff;
+    }
+
+    display: flex;
+    padding: 15px 0;
+}
+
+.portlet-search {
+
+    margin-right: 20px;
+
+    .portlet-title-text {
+        display: none;
+    }
+
+    .input-text-wrapper {
+        margin-bottom: 5px;
+    }
+
+    .lfr-ddm-field-group {
+        margin-bottom: 10px;
+    }
+
+    .portlet {
+        margin-bottom: 0;
+    }
 }

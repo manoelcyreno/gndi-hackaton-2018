@@ -31,12 +31,29 @@
 					</a>
 				</h1>
 
-				<#if has_navigation && is_setup_complete>
-					<#include "${full_templates_path}/navigation.ftl" />
+				<#if is_signed_in>
+					<#if has_navigation && is_setup_complete>
+						<#include "${full_templates_path}/navigation.ftl" />
+					</#if>
 				</#if>
+
 			</div>
 
-			<#include "${full_templates_path}/user_menu.ftl" />
+			<#if is_signed_in>
+				<div class="search-user-wrapper">
+					<#assign VOID = freeMarkerPortletPreferences.setValue("portletSetupPortletDecoratorId", "barebone")>
+
+					<#--  TIP: You have to hide the Search Portlet Header title with CSS  -->
+
+					<div class="my-embed-search-example pull-left">
+						<@liferay.search default_preferences="${freeMarkerPortletPreferences}" />
+					</div>
+
+					<div class="pull-left">
+						<#include "${full_templates_path}/user_menu.ftl" />
+					</div>
+				</div>
+			</#if>
 		</div>
 		
 	</header>
@@ -59,9 +76,11 @@
 	</section>
 
 	<footer id="footer" role="contentinfo">
-		<p class="powered-by">
-			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
-		</p>
+		<div class="container">
+			<p class="powered-by">
+				<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
+			</p>
+		</div>
 	</footer>
 </div>
 
