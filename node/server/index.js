@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const WeDeploy = require('wedeploy');
+const _ = require('underscore');
 
 app.get('/company-summary', (req, res) => {
     getCompanySummary().then(result => {
@@ -10,6 +11,12 @@ app.get('/company-summary', (req, res) => {
 
 app.get('/appointments-cost', (req, res) => {
     getAppointmentsCost().then(result => {
+        res.send(JSON.stringify(result));
+    });
+});
+
+app.get('/specialties-by-month', (req, res) => {
+    getSpecialtiesByMonth().then(result => {
         res.send(JSON.stringify(result));
     });
 });
@@ -47,5 +54,25 @@ function getAppointmentsCost() {
             return {
                 "totalCost": totalCost
             }
+        });
+}
+
+function getSpecialtiesByMonth() {
+    return WeDeploy
+        .data('https://data-gndihackaton.wedeploy.io/')
+        .get('appointment')
+        .then(appointmentsList => {
+            let dataBySpecialty = _.groupBy(appointmentsList, (appointment) => {
+                return appointment['specialty'];
+            });
+
+            Object.keys(dataBySpecialty).forEach(specialty => {
+                dataBySpecialty[specialty] = _.groupBy(dataBySpecialty[specialty],
+                    (appointment) => {
+                        return new Date(appointment['date']).getMonth();
+                    });
+            });
+
+            return dataBySpecialty;
         });
 }

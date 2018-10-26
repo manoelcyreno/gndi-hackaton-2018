@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "node-fetch": "^2.2.0",
+    "underscore": "^1.9.1",
     "wedeploy": "^4.5.0"
   }
 }
